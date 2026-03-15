@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    @apply bg-gradient-to-br from-brand-50 to-white min-h-screen;
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-feature-settings: 'zero' 1, 'tnum' 1;
+  }
+}
