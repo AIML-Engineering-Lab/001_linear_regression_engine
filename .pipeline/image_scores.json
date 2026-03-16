@@ -1,0 +1,110 @@
+{
+  "repo": "001_linear_regression_engine",
+  "all_scores": [
+    {
+      "clarity": 5,
+      "information_density": 5,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 19,
+      "description": "Histogram of fermentation time with mean and correlation matrix of features.",
+      "width": 1635,
+      "height": 587,
+      "file": "fig0_eda.png"
+    },
+    {
+      "clarity": 5,
+      "information_density": 5,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 19,
+      "description": "The chart shows RMSE comparisons and predicted vs actual plots for linear regression models.",
+      "width": 2385,
+      "height": 1825,
+      "file": "fig4_model_comparison.png"
+    },
+    {
+      "clarity": 5,
+      "information_density": 5,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 19,
+      "description": "This chart shows the effect of different learning rates on gradient descent convergence.",
+      "width": 2085,
+      "height": 772,
+      "file": "fig5_gd_convergence.png"
+    },
+    {
+      "clarity": 5,
+      "information_density": 5,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 19,
+      "description": "This chart shows the residual analysis of a Ridge Regression model on the test set.",
+      "width": 2147,
+      "height": 617,
+      "file": "fig_residuals.png"
+    },
+    {
+      "clarity": 5,
+      "information_density": 4,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 18,
+      "description": "The chart compares coefficient shrinkage paths for Ridge and Lasso regressions as regularization strength changes.",
+      "width": 1908,
+      "height": 740,
+      "file": "fig3_coefficient_paths.png"
+    },
+    {
+      "clarity": 5,
+      "information_density": 4,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 18,
+      "description": "The chart shows the convergence of MSE cost over iterations using gradient descent.",
+      "width": 1187,
+      "height": 468,
+      "file": "fig_gd_convergence.png"
+    },
+    {
+      "clarity": 4,
+      "information_density": 4,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 17,
+      "description": "The chart shows the 3D MSE cost surface with a gradient descent path indicated.",
+      "width": 1326,
+      "height": 1186,
+      "file": "fig1_cost_surface_3d.png"
+    },
+    {
+      "clarity": 4,
+      "information_density": 4,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 17,
+      "description": "The chart compares Ridge (L2) and Lasso (L1) constraints on a linear regression problem.",
+      "width": 2082,
+      "height": 920,
+      "file": "fig2_l1_l2_contours.png"
+    },
+    {
+      "clarity": 4,
+      "information_density": 4,
+      "visual_appeal": 4,
+      "completeness": 5,
+      "total": 17,
+      "description": "This chart shows the relationships between various features and the target Fmax in the Silicon Fmax dataset.",
+      "width": 2148,
+      "height": 1217,
+      "file": "fig_fmax_eda.png"
+    }
+  ],
+  "linkedin_selected": [
+    "fig0_eda.png",
+    "fig4_model_comparison.png"
+  ],
+  "linkedin_primary": "fig0_eda.png",
+  "linkedin_secondary": "fig4_model_comparison.png"
+}
