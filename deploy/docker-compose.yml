@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+
+  # ── FastAPI ML Backend ────────────────────────────────────────────────────
+  api:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+      target: runner
+    image: 001-linear-regression-engine:api
+    container_name: 001-linear-regression-engine_api
+    restart: unless-stopped
+    environment:
+      MODEL_PATH: /app/models/ridge_pipeline.pkl
+      LOG_LEVEL: info
+    volumes:
+      - ../models:/app/models:ro
+    ports:
+      - "8000:8000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
