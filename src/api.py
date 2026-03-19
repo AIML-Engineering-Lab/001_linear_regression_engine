@@ -27,7 +27,7 @@ class PredictionResponse(BaseModel):
 def get_model():
     global _model
     if _model is None:
-        _model = joblib.load(MODEL_DIR / "ridge_pipeline.pkl")
+        _model = joblib.load(MODEL_DIR / "ridge_fmax.pkl")
     return _model
 
 

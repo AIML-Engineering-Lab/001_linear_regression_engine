@@ -46,33 +46,51 @@ This represents a real post-silicon validation use case: predicting chip perform
 
 ```
 001_linear_regression_engine/
+├── assets/                                        # All notebook-generated visualizations
+│   ├── proj1_cheese_eda.png                       # Cheese: target distribution + correlation heatmap
+│   ├── proj1_cheese_gd_convergence.png            # Cheese: gradient descent MSE vs iteration
+│   ├── proj1_cheese_coefficient_paths.png         # Cheese: Ridge vs Lasso coefficient shrinkage paths
+│   ├── proj1_cheese_train_vs_test.png             # Cheese: actual vs predicted (train + test)
+│   ├── proj1_cheese_residuals.png                 # Cheese: 3-panel residual diagnostics
+│   ├── proj1_cheese_unseen.png                    # Cheese: unseen data performance (500 samples)
+│   ├── proj1_cheese_flowchart.png                 # Cheese: AI-generated pipeline flowchart
+│   ├── proj2_fmax_eda.png                         # Fmax: 6 feature-vs-target scatter plots
+│   ├── proj2_fmax_cost_surface_3d.png             # Fmax: 3D MSE cost surface with GD path
+│   ├── proj2_fmax_l1_l2_contours.png              # Fmax: L1 diamond vs L2 circle geometry
+│   ├── proj2_fmax_train_vs_test.png               # Fmax: actual vs predicted (train + test)
+│   ├── proj2_fmax_unseen.png                      # Fmax: unseen silicon lots performance
+│   └── proj2_fmax_flowchart.png                   # Fmax: AI-generated pipeline flowchart
 ├── data/
-│   ├── artisan_cheese_fermentation_data.csv
-│   └── silicon_fmax_validation_data.csv
-├── notebooks/
-│   ├── 01_linear_regression_cheese.ipynb
-│   └── 02_linear_regression_fmax.ipynb
-├── src/
-│   ├── train.py              # Train Ridge pipeline, save to models/
-│   ├── predict.py            # Load model, run inference
-│   ├── api.py                # FastAPI serving endpoint (POST /predict)
-│   └── data_generator.py     # Synthetic dataset generation
-├── models/
-│   └── ridge_pipeline.pkl    # Trained Ridge model (R² = 0.9960)
+│   ├── artisan_cheese_fermentation_data.csv       # 2,000 cheese batches (8 features + target)
+│   └── silicon_fmax_validation_data.csv           # 2,000 silicon samples (7 features + target)
 ├── deploy/
-│   ├── Dockerfile
-│   └── docker-compose.yml
-├── web/
-│   ├── generate_dashboard.py # Production Fmax validation dashboard generator
-│   ├── dashboard.html        # Interactive Plotly.js dashboard (8 charts)
-│   └── dashboard_data.csv    # Synthetic silicon validation data (8,000 dies)
-├── assets/                   # All notebook-generated visualizations
+│   ├── Dockerfile                                 # Container image for FastAPI server
+│   ├── docker-compose.yml                         # Single-command deployment
+│   ├── nginx.conf                                 # Reverse proxy configuration
+│   └── railway.json                               # Railway.app deployment config
 ├── docs/
-│   ├── Linear_Regression_Engine_Report.pdf
-│   └── Linear_Regression_Engine_Merged.pdf
-├── requirements.txt
+│   ├── Linear_Regression_Engine_Report.html       # Report source (HTML with embedded images)
+│   └── Linear_Regression_Engine_Report.pdf        # Final PDF report (both projects)
+├── models/
+│   ├── ridge_cheese.pkl                           # Trained Ridge model for cheese (R² = 0.93)
+│   └── ridge_fmax.pkl                             # Trained Ridge model for fmax (R² = 0.9960)
+├── notebooks/
+│   ├── 01_linear_regression_cheese.ipynb          # Full pipeline: OLS → Ridge → Lasso → Evaluation
+│   └── 02_linear_regression_fmax.ipynb            # Silicon Fmax: same pipeline + 3D/L1-L2 visuals
+├── src/
+│   ├── train.py                                   # Train Ridge models for both datasets
+│   ├── predict.py                                 # Load model and run inference
+│   ├── api.py                                     # FastAPI serving endpoint (POST /predict)
+│   └── data_generator.py                          # Synthetic dataset generation
+├── tests/
+│   └── test_model.py                              # Model validation tests
+├── web/
+│   ├── generate_dashboard.py                      # Generates interactive Plotly.js dashboard
+│   ├── dashboard.html                             # Production Fmax dashboard (8 charts, 8K dies)
+│   └── dashboard_data.csv                         # Synthetic silicon data (50 lots × 20 wafers × 8 dies)
 ├── .gitignore
-└── LICENSE
+├── LICENSE                                        # MIT License
+└── requirements.txt                               # Python dependencies
 ```
 
 ---
@@ -115,7 +133,7 @@ python3 src/data_generator.py
 # Open notebooks
 jupyter notebook notebooks/
 
-# Train model and save artifact
+# Train model and save artifacts (both datasets)
 python3 src/train.py
 
 # Run predictions
