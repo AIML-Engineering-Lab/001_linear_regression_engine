@@ -163,6 +163,22 @@ python3 tests/test_model.py
 
 ---
 
+## Architecture
+
+```mermaid
+graph LR
+    A[CSV Data] --> B[ColumnTransformer]
+    B --> C[StandardScaler + OneHotEncoder]
+    C --> D[OLS / Ridge / Lasso / ElasticNet]
+    D --> E[Cross-Validation + Residual Analysis]
+    E --> F[Model Selection]
+    F --> G[Unseen Data Test]
+    G --> H[FastAPI /predict]
+    C --> I[3D Cost Surface + Coefficient Paths]
+```
+
+---
+
 ## License
 
 MIT License. See [LICENSE](LICENSE) for details.
